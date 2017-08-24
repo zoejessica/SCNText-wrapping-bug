@@ -16,8 +16,8 @@ struct VirtualTextObjectDefinition: Equatable {
     let extrusionratio: CGFloat
     let isWrapped: Bool
     
-    var displayName: String { return String(text.prefix(20)) }
-    var thumbImage: UIImage { return  UIImage(named: "candle")! }
+    var displayName: String { return String(text.prefix(50)) }
+    var thumbImage: UIImage { return  UIImage(named: "letter")! }
     
     static func ==(lhs: VirtualTextObjectDefinition, rhs: VirtualTextObjectDefinition) -> Bool {
         return lhs.text == rhs.text &&
@@ -40,7 +40,7 @@ class VirtualObject : SCNNode {
         // alignmentMode is currently broken on iOS, but works on the Mac. This is visible when doing multi line text. Refer to the documentation as to why containerFrame is needed.
         extrudedText.containerFrame = CGRect(origin: .zero, size: CGSize(width: 1.0, height: 5.0))
         extrudedText.truncationMode = kCATruncationNone
-        extrudedText.isWrapped = true
+        extrudedText.isWrapped = definition.isWrapped
         extrudedText.alignmentMode = kCAAlignmentLeft
         
         

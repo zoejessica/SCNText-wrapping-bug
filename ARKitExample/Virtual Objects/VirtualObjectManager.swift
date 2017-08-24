@@ -39,7 +39,9 @@ class VirtualObjectManager {
 //    }()
     
     static let availableObjects: [VirtualTextObjectDefinition] = [
-        VirtualTextObjectDefinition(text: "Failure is a bruise, not a tattoo.", fontname: "Futura-CondensedExtraBold", size: 0.2, extrusionratio: 0.5)]
+        VirtualTextObjectDefinition(text: "Unwrapped text renders as expected", fontname: "Futura-CondensedExtraBold", size: 0.2, extrusionratio: 0.5, isWrapped: false),
+        VirtualTextObjectDefinition(text: "Lines of wrapped text are not spaced vertically", fontname: "Futura-CondensedExtraBold", size: 0.2, extrusionratio: 0.5, isWrapped: true)
+    ]
 
 	func removeAllVirtualObjects() {
 		for object in virtualObjects {
